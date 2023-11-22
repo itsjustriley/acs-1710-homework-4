@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="weather-form">
+    {# 
+        TODO: Replace the hard-coded cities and date below with data from the 
+        server.
+    #}
+    <h1>Weather in {{city1.city}} and {{city2.city}}</h1>
+    <p>{{date}}</p>
+    <img src="{{city1.icon}}" alt="{{city1.city}} Weather icon - {{city1.description}}">
+    <img src="{{city2.icon}}" alt="{{city2.city}} Weather icon - {{city2.description}}">
+
+
+    {#
+        TODO: Add the temperature, description, and min & max temperature below.
+        Replace 'F' with the appropriate units.
+    #}
+    <p>
+        It is {{(city1.degrees - city2.degrees) | abs }} {{city1.units}} {{'Warmer' if city1.degrees > city2.degrees else 'Colder'}} in {{city1.city}} than in {{city2.city}} today.
+    </p>
+
+    <p>
+        The humidity in {{city1.city}} is {{(city1.humidity - city2.humidity) | abs}} {{('Greater' if city1.humidity > city2.humidity else 'Less')}} than in {{city2.city}}.
+    </p>
+
+    <p>
+        The wind speed in {{city1.city}} is {{(city1.wind_speed - city2.wind_speed) | abs}} {{('Greater' if city1.wind_speed > city2.wind_speed else 'Less')}} than in {{city2.city}}.
+    </p>
+
+    <p>
+        The sun sets in {{city1.city}} {{(city1.sunset-city2.sunset) | abs}} hour(s) {{'Later' if city1.sunset > city2.sunset else 'Earlier'}} than in {{city2.city}}.
+    </p>
+    
+</section>
+
+{% endblock %}

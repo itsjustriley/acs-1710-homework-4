@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    {#
+        TODO: Replace the hard-coded city and date below with data from the 
+        server 
+    #}
+    <h1>Weather in {{city}}</h1>
+    <p>on {{date}}</p>
+
+    
+    {#
+        TODO: Add the temperature, description, humidity, wind speed, sunrise,
+        & sunset below to replace the [ ].
+    #}
+    <ul class = "weather-details">
+        <li class = "image-li"><img src="{{icon}}" alt="Weather icon"></li>
+        <li>Temperature:<br> {{degrees}} {{units}}</li>
+        <li>Description:<br> {{description}} </li>
+        <li>Humidity:<br> {{humidity}} % </li>
+        <li>Wind speed:<br> {{wind_speed}} miles/hour </li>
+        <li>Sunrise:<br> {{sunrise}} </li>
+        <li>Sunset:<br> {{sunset}} </li>
+    </ul>
+    
+</section>
+{% endblock %}
